@@ -197,7 +197,7 @@ export default function Report() {
                                         <div className="row">
                                             {listReport.length == 0 ?
                                                 <div className="col-md-12">
-                                                    <p className='text-center'>&#128079; there's no task to solve</p>
+                                                    <p className='text-center'>it's okay &#128079; there's no task to solve</p>
                                                 </div>
                                                 :
                                                 <>

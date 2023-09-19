@@ -44,7 +44,7 @@ export default function Dashboard() {
             <footer className="sticky-footer bg-white">
               <div className="container my-auto">
                 <div className="copyright text-center my-auto">
-                  <span>Copyright©UPT-SI</span>
+                  <span>Copyright©KASMAN FAQOT</span>
                 </div>
               </div>
             </footer>
