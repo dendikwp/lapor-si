@@ -1,0 +1,26 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "index.js",
+            "use": "@vercel/node"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/assets/(.*)",
+            "dest": "/assets/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/index.js"
+        }
+    ],
+    "env": {
+        "PORT": "5000",
+        "DB_HOST": "sql12.freemysqlhosting.net",
+        "DB_NAME": "sql12645556",
+        "DB_USERNAME": "sql12645556",
+        "DB_PASSWORD": "1AHnd3F3wg"
+    }
+}
