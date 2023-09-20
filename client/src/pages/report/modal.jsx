@@ -94,7 +94,7 @@ export default function ModalReport({ handleSubmit, handlerInput, setIsAdd, list
                             required></textarea>
                     </div>
                     <div className="col-md-12 mb-3">
-                        <input className='form-control' type="text" placeholder='task handler'
+                        <input className='form-control' type="text" placeholder='tim bertugas'
                             name='tim_bertugas'
                             value={form.tim_bertugas}
                             onChange={handlerInput}

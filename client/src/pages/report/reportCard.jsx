@@ -17,7 +17,7 @@ export default function ReportCard({ toggleStatus, toggleEdit, deleteReportSI, l
                         <p style={{ marginBottom: '0px', marginTop: '-8px', fontSize: '14px' }}><b>Reporter</b>: {list.pelapor}</p>
                         <p style={{ marginBottom: '0px', fontSize: '14px' }}>{list.keluhan}</p>
                         <p className='mt-2' style={{ marginBottom: '0px', fontSize: '14px' }}><b>Solusi</b>: {list.solusi}</p>
-                        <p style={{ marginBottom: '0px', fontSize: '14px' }}><b>Task Handler</b>: {list.tim_bertugas}</p>
+                        <p style={{ marginBottom: '0px', fontSize: '14px' }}><b>Tim Bertugas</b>: {list.tim_bertugas}</p>
                         <p style={{ marginBottom: '0px', fontSize: '14px' }}><b>Proses:</b> {list.lama_fixing} hari {list.screenshot != "" ? (<>- <a href={import.meta.env.VITE_API_BASE_URL + list.lampiran} target='_blank'>lampiran</a></>) : null}</p>
                     </div>
                     <div className="col-md-12 mt-2">
