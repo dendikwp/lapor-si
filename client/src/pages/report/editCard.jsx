@@ -111,7 +111,10 @@ export default function EditCard({ handleSubmit, handlerInput, listMasterSI,
                         <label>lampiran</label>
                         <input className='form-control' type="file"
                             name='photo'
-                            onChange={handlerInput} />
+                            onChange={handlerInput} 
+                            accept=".jpg, .jpeg, .png, .gif, .bmp, .pdf"
+                            max="2097152" // 2MB in bytes (2 * 1024 * 1024)
+                            required/>
                     </div>
                     <div className="col-md-12">
                         <p align="right" style={{ margin: '0px' }}>

@@ -1,7 +1,7 @@
 const badges = [
     {
         badge: "low",
-        label: <span className='badge badge-primary'>&#128516; low</span>
+        label: <span className='badge badge-primary'>&#128515; low</span>
     },
     {
         badge: "medium",

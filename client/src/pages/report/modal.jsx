@@ -108,11 +108,15 @@ export default function ModalReport({ handleSubmit, handlerInput, setIsAdd, list
                             required />
                     </div>
                     <div className="col-md-12 mb-3">
-                        <label>lampiran</label>
+                    <label>lampiran</label>
                         <input className='form-control' type="file"
                             name='photo'
-                            onChange={handlerInput} />
+                            onChange={handlerInput}
+                            accept=".jpg, .jpeg, .png, .gif, .bmp, .pdf"
+                            max="2097152" // 2MB in bytes (2 * 1024 * 1024)
+                            required />
                     </div>
+                    
                     <div className="col-md-12">
                         <p align="right" style={{ margin: '0px' }}>
                             <button className='btn btn-white mr-2' onClick={() => setIsAdd(!isAdd)} disabled={loader}>cancel</button>
