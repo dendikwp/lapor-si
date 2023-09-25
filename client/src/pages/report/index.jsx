@@ -10,7 +10,15 @@ import { masterServer } from '../../services/master-server'
 import { masterSkala } from '../../services/master-skala'
 import { decodeToken } from '../../utils/setToken'
 
+const options = [
+    { value: 'dendik', label: 'Dendik' },
+    { value: 'diki', label: 'Diki' },
+    { value: 'taricha', label: 'Taricha' },
+    { value: 'zen', label: 'Zen' },
+];
+
 export default function Report() {
+
 
     const initialState = {
         id: "",
@@ -25,7 +33,7 @@ export default function Report() {
         lama_fixing: "",
         skala: "",
         priority: "",
-        tim_bertugas: "",
+        tim_bertugas: [],
         cs: decodeToken().username,
         status: 0,
     }
@@ -45,12 +53,23 @@ export default function Report() {
     const { getMasterServer, listMasterServer } = masterServer()
     const { getMasterSkala, listMasterSkala } = masterSkala()
 
+
+
     const [form, setForm] = useState(initialState)
     const [filter, setFilter] = useState({
         bulan: "",
         tahun: "",
         status: "all"
     })
+
+    const selectInput = (e) => {
+        console.log(e)
+        setForm({
+            ...form,
+            tim_bertugas: e,
+        });
+    };
+
 
     const handlerInput = (e) => {
         const { name, value, type, files } = e.target;
@@ -189,7 +208,10 @@ export default function Report() {
                                                     listMasterSkala={listMasterSkala}
                                                     form={form}
                                                     isAdd={isAdd}
-                                                    loader={loader} />
+                                                    loader={loader}
+                                                    options={options}
+                                                    selectInput={selectInput}
+                                                />
                                             </div>
                                         </div>
                                         : null}
@@ -216,6 +238,8 @@ export default function Report() {
                                                                                 listMasterSkala={listMasterSkala}
                                                                                 form={form}
                                                                                 edit={edit}
+                                                                                options={options}
+                                                                                selectInput={selectInput}
                                                                                 index={i} /> :
                                                                             <ReportCard
                                                                                 list={list}
