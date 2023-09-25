@@ -63,13 +63,11 @@ export default function Report() {
     })
 
     const selectInput = (e) => {
-        console.log(e)
         setForm({
             ...form,
             tim_bertugas: e,
         });
     };
-
 
     const handlerInput = (e) => {
         const { name, value, type, files } = e.target;
@@ -82,11 +80,15 @@ export default function Report() {
 
     const handleSubmit = (e, index) => {
         e.preventDefault();
-        const formData = new FormData();
-        for (const key in form) {
-            formData.append(key, form[key]);
+        const newForm = {
+            ...form,
+            tim_bertugas: JSON.stringify(form.tim_bertugas)
         }
-        if (form.id == "") {
+        const formData = new FormData();
+        for (const key in newForm) {
+            formData.append(key, newForm[key]);
+        }
+        if (newForm.id == "") {
             addReportSI(formData, filter)
         } else {
             editReportSI(formData, index, filter)
