@@ -75,7 +75,7 @@ export default function MasterTim() {
             <div className="card-body">
                 {loading ? <Loader /> :
                     <>
-                        <button type="button" className="btn btn-primary mb-4" data-toggle="modal" data-target="#modal">
+                        <button type="button" className="btn btn-primary mb-4" data-toggle="modal" data-target="#modal" onClick={() => setForm(initialState)}>
                             Tambah Data
                         </button>
                         <BasicTable
@@ -109,7 +109,7 @@ export default function MasterTim() {
                                     <div className='col-md-6'>
                                         <div className="form-group">
                                             <label htmlFor="exampleFormControlInput1"><b>Nama Lengkap</b></label>
-                                            <input type="text" value={form.nama_lengkap} name="nama_lengkap" className="form-control" placeholder="kasman" onChange={handlerInput} />
+                                            <input type="text" value={form.nama_lengkap} name="nama_lengkap" className="form-control" placeholder="lengkap" onChange={handlerInput} />
                                         </div>
                                     </div>
                                 </div>
