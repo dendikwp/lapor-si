@@ -1,7 +1,14 @@
 import React from 'react'
+import Select from 'react-select';
 
-export default function EditCard({ handleSubmit, handlerInput, listMasterSI,
-    listMasterServer, listMasterSkala, toggleEdit, edit, form, index }) {
+export default function EditCard({ handleSubmit, handlerInput, listMasterSI, listMasterTim,
+    listMasterServer, listMasterSkala, toggleEdit, edit, form, index, selectInput }) {
+    const options = listMasterTim.map((list) => {
+        return {
+            label: list.nama_label,
+            value: list.nama_label
+        }
+    })
     return (
         <form onSubmit={(e) => handleSubmit(e, index)}>
             <div className="card-header">
@@ -94,11 +101,14 @@ export default function EditCard({ handleSubmit, handlerInput, listMasterSI,
                             required></textarea>
                     </div>
                     <div className="col-md-12 mb-3">
-                        <input className='form-control' type="text" placeholder='tim bertugas'
+                        <Select
+                            isMulti
                             name='tim_bertugas'
                             value={form.tim_bertugas}
-                            onChange={handlerInput}
-                            required />
+                            onChange={selectInput}
+                            options={options}
+                            placeholder='tim bertugas'
+                        />
                     </div>
                     <div className="col-md-12 mb-3">
                         <input className='form-control' type="number" placeholder='lama proses'
@@ -111,10 +121,10 @@ export default function EditCard({ handleSubmit, handlerInput, listMasterSI,
                         <label>lampiran</label>
                         <input className='form-control' type="file"
                             name='photo'
-                            onChange={handlerInput} 
+                            onChange={handlerInput}
                             accept=".jpg, .jpeg, .png, .gif, .bmp, .pdf"
                             max="2097152" // 2MB in bytes (2 * 1024 * 1024)
-                            required/>
+                        />
                     </div>
                     <div className="col-md-12">
                         <p align="right" style={{ margin: '0px' }}>

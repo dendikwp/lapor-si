@@ -1,8 +1,16 @@
 import React from 'react'
 import Select from 'react-select';
 
-export default function ModalReport({ handleSubmit, handlerInput, setIsAdd, listMasterSI,
-    listMasterServer, listMasterSkala, form, isAdd, loader, options, selectInput }) {
+export default function ModalReport({ handleSubmit, handlerInput, setIsAdd, listMasterSI,listMasterTim,
+    listMasterServer, listMasterSkala, form, isAdd, loader, selectInput }) {
+
+    const options = listMasterTim.map((list) => {
+        return {
+            label: list.nama_label,
+            value: list.nama_label
+        }
+    })
+
     return (
         <form onSubmit={handleSubmit}>
             <div className="card-header">
@@ -94,13 +102,6 @@ export default function ModalReport({ handleSubmit, handlerInput, setIsAdd, list
                             onChange={handlerInput}
                             required></textarea>
                     </div>
-                    {/* <div className="col-md-12 mb-3">
-                        <input className='form-control' type="text" placeholder='tim bertugas'
-                            name='tim_bertugas'
-                            value={form.tim_bertugas}
-                            onChange={handlerInput}
-                            required />
-                    </div> */}
                     <div className="col-md-12 mb-3">
                         <Select
                             isMulti
@@ -108,6 +109,7 @@ export default function ModalReport({ handleSubmit, handlerInput, setIsAdd, list
                             value={form.tim_bertugas}
                             onChange={selectInput}
                             options={options}
+                            placeholder='tim bertugas'
                         />
                     </div>
                     <div className="col-md-12 mb-3">

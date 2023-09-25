@@ -11,16 +11,7 @@ import { masterSkala } from '../../services/master-skala'
 import { decodeToken } from '../../utils/setToken'
 import { masterTim } from '../../services/tim'
 
-const options = [
-    { value: 'dendik', label: 'Dendik' },
-    { value: 'diki', label: 'Diki' },
-    { value: 'taricha', label: 'Taricha' },
-    { value: 'zen', label: 'Zen' },
-];
-
 export default function Report() {
-
-
     const initialState = {
         id: "",
         photo: "",
@@ -215,7 +206,6 @@ export default function Report() {
                                                     form={form}
                                                     isAdd={isAdd}
                                                     loader={loader}
-                                                    options={options}
                                                     selectInput={selectInput}
                                                 />
                                             </div>
@@ -242,9 +232,9 @@ export default function Report() {
                                                                                 listMasterSI={listMasterSI}
                                                                                 listMasterServer={listMasterServer}
                                                                                 listMasterSkala={listMasterSkala}
+                                                                                listMasterTim={listMasterTim}
                                                                                 form={form}
                                                                                 edit={edit}
-                                                                                options={options}
                                                                                 selectInput={selectInput}
                                                                                 index={i} /> :
                                                                             <ReportCard
