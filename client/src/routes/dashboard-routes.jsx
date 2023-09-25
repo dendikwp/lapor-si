@@ -4,6 +4,7 @@ import MasterSI from '../pages/masterSI'
 import Report from '../pages/report'
 import MasterSkala from '../pages/skala'
 import MasterServer from '../pages/server'
+import MasterTim from '../pages/tim'
 
 export default function DashboardRoutes() {
     return (
@@ -12,6 +13,7 @@ export default function DashboardRoutes() {
             <Route path="/master-si" exact element={<MasterSI />} />
             <Route path="/master-skala" exact element={<MasterSkala />}/>
             <Route path="/master-server" exact element={<MasterServer />}/>
+            <Route path="/master-tim" exact element={<MasterTim />}/>
         </Routes>
     )
 }

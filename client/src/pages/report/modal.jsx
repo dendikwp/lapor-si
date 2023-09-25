@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ModalReport({ handleSubmit, handlerInput, setIsAdd, listMasterSI,
+export default function ModalReport({ handleSubmit, handlerInput, setIsAdd, listMasterSI,listMasterTim,
     listMasterServer, listMasterSkala, form, isAdd, loader }) {
     return (
         <form onSubmit={handleSubmit}>

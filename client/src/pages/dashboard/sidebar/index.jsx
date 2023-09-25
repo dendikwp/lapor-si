@@ -23,6 +23,7 @@ export default function Sidebar({ isToggle }) {
                         <Link className="collapse-item" to="/master-si">Master SI</Link>
                         <Link className="collapse-item" to="/master-server">Master Server</Link>
                         <Link className="collapse-item" to="/master-skala">Master Skala</Link>
+                        <Link className="collapse-item" to="/master-tim">Master Tim</Link>
                     </div>
                 </div>
             </li>

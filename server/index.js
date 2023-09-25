@@ -9,7 +9,7 @@ const masterSIRoute = require('./routes/masterSIRoutes.js');
 const masterServerRoute = require('./routes/masterServerRoutes.js');
 const masterSkalaRoute = require('./routes/masterSkalaRoutes.js');
 const reportRoute = require('./routes/reportRoutes.js');
-
+const masterTimRoute = require('./routes/masterTimRoutes.js');
 config();
 const app = express();
 const port = process.env.PORT;
@@ -29,6 +29,7 @@ app.use(masterSIRoute);
 app.use(masterServerRoute);
 app.use(masterSkalaRoute);
 app.use(reportRoute);
+app.use(masterTimRoute);
 
 app.listen(port, () => {
   console.log('Server berjalan di port ' + port);

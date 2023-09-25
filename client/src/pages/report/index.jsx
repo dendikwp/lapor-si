@@ -9,6 +9,7 @@ import { masterSI } from '../../services/masterSI'
 import { masterServer } from '../../services/master-server'
 import { masterSkala } from '../../services/master-skala'
 import { decodeToken } from '../../utils/setToken'
+import { masterTim } from '../../services/tim'
 
 export default function Report() {
 
@@ -44,6 +45,7 @@ export default function Report() {
     const { getMasterSI, listMasterSI } = masterSI()
     const { getMasterServer, listMasterServer } = masterServer()
     const { getMasterSkala, listMasterSkala } = masterSkala()
+    const { getMasterTim, listMasterTim } = masterTim()
 
     const [form, setForm] = useState(initialState)
     const [filter, setFilter] = useState({
@@ -105,7 +107,8 @@ export default function Report() {
                 getReportSI(resDate.bulan, resDate.tahun, "all"),
                 getMasterSI(),
                 getMasterServer(),
-                getMasterSkala()
+                getMasterSkala(),
+                getMasterTim()
             ]
             await Promise.all(promises);
         };
@@ -187,6 +190,7 @@ export default function Report() {
                                                     listMasterSI={listMasterSI}
                                                     listMasterServer={listMasterServer}
                                                     listMasterSkala={listMasterSkala}
+                                                    listMasterTim={listMasterTim}
                                                     form={form}
                                                     isAdd={isAdd}
                                                     loader={loader} />
