@@ -43,6 +43,7 @@ exports.getReport = async (req, res) => {
         plainResponse.forEach((item) => {
             const screenshotPath = '/assets/' + item.screenshot;
             item.lampiran = screenshotPath;
+            item.tim_bertugas = JSON.parse(item.tim_bertugas)
         });
 
         res.status(200).json(plainResponse);

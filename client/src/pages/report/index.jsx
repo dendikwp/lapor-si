@@ -11,7 +11,15 @@ import { masterSkala } from '../../services/master-skala'
 import { decodeToken } from '../../utils/setToken'
 import { masterTim } from '../../services/tim'
 
+const options = [
+    { value: 'dendik', label: 'Dendik' },
+    { value: 'diki', label: 'Diki' },
+    { value: 'taricha', label: 'Taricha' },
+    { value: 'zen', label: 'Zen' },
+];
+
 export default function Report() {
+
 
     const initialState = {
         id: "",
@@ -26,7 +34,7 @@ export default function Report() {
         lama_fixing: "",
         skala: "",
         priority: "",
-        tim_bertugas: "",
+        tim_bertugas: [],
         cs: decodeToken().username,
         status: 0,
     }
@@ -47,12 +55,21 @@ export default function Report() {
     const { getMasterSkala, listMasterSkala } = masterSkala()
     const { getMasterTim, listMasterTim } = masterTim()
 
+
+
     const [form, setForm] = useState(initialState)
     const [filter, setFilter] = useState({
         bulan: "",
         tahun: "",
         status: "all"
     })
+
+    const selectInput = (e) => {
+        setForm({
+            ...form,
+            tim_bertugas: e,
+        });
+    };
 
     const handlerInput = (e) => {
         const { name, value, type, files } = e.target;
@@ -65,11 +82,15 @@ export default function Report() {
 
     const handleSubmit = (e, index) => {
         e.preventDefault();
-        const formData = new FormData();
-        for (const key in form) {
-            formData.append(key, form[key]);
+        const newForm = {
+            ...form,
+            tim_bertugas: JSON.stringify(form.tim_bertugas)
         }
-        if (form.id == "") {
+        const formData = new FormData();
+        for (const key in newForm) {
+            formData.append(key, newForm[key]);
+        }
+        if (newForm.id == "") {
             addReportSI(formData, filter)
         } else {
             editReportSI(formData, index, filter)
@@ -193,7 +214,10 @@ export default function Report() {
                                                     listMasterTim={listMasterTim}
                                                     form={form}
                                                     isAdd={isAdd}
-                                                    loader={loader} />
+                                                    loader={loader}
+                                                    options={options}
+                                                    selectInput={selectInput}
+                                                />
                                             </div>
                                         </div>
                                         : null}
@@ -220,6 +244,8 @@ export default function Report() {
                                                                                 listMasterSkala={listMasterSkala}
                                                                                 form={form}
                                                                                 edit={edit}
+                                                                                options={options}
+                                                                                selectInput={selectInput}
                                                                                 index={i} /> :
                                                                             <ReportCard
                                                                                 list={list}

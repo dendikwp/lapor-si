@@ -1,7 +1,8 @@
 import React from 'react'
+import Select from 'react-select';
 
-export default function ModalReport({ handleSubmit, handlerInput, setIsAdd, listMasterSI,listMasterTim,
-    listMasterServer, listMasterSkala, form, isAdd, loader }) {
+export default function ModalReport({ handleSubmit, handlerInput, setIsAdd, listMasterSI,
+    listMasterServer, listMasterSkala, form, isAdd, loader, options, selectInput }) {
     return (
         <form onSubmit={handleSubmit}>
             <div className="card-header">
@@ -93,12 +94,21 @@ export default function ModalReport({ handleSubmit, handlerInput, setIsAdd, list
                             onChange={handlerInput}
                             required></textarea>
                     </div>
-                    <div className="col-md-12 mb-3">
+                    {/* <div className="col-md-12 mb-3">
                         <input className='form-control' type="text" placeholder='tim bertugas'
                             name='tim_bertugas'
                             value={form.tim_bertugas}
                             onChange={handlerInput}
                             required />
+                    </div> */}
+                    <div className="col-md-12 mb-3">
+                        <Select
+                            isMulti
+                            name='tim_bertugas'
+                            value={form.tim_bertugas}
+                            onChange={selectInput}
+                            options={options}
+                        />
                     </div>
                     <div className="col-md-12 mb-3">
                         <input className='form-control' type="number" placeholder='lama proses'
@@ -108,7 +118,7 @@ export default function ModalReport({ handleSubmit, handlerInput, setIsAdd, list
                             required />
                     </div>
                     <div className="col-md-12 mb-3">
-                    <label>lampiran</label>
+                        <label>lampiran</label>
                         <input className='form-control' type="file"
                             name='photo'
                             onChange={handlerInput}
@@ -116,7 +126,7 @@ export default function ModalReport({ handleSubmit, handlerInput, setIsAdd, list
                             max="2097152" // 2MB in bytes (2 * 1024 * 1024)
                             required />
                     </div>
-                    
+
                     <div className="col-md-12">
                         <p align="right" style={{ margin: '0px' }}>
                             <button className='btn btn-white mr-2' onClick={() => setIsAdd(!isAdd)} disabled={loader}>cancel</button>
